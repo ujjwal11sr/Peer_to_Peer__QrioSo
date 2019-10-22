@@ -583,6 +583,32 @@ router.get('/qna/:_id', function (req, res)
 			return;
 		});
 	}
+	function Update_area (callback)
+	{
+		var query = {email_id: req.body.email_id};
+		var update = {
+			$set : {
+				area_of_expertise: areas
+			}
+		};
+		var options = {upsert: false};
+		User_profile.findOneAndUpdate(query, update,options, function(error, data){
+			if (error)
+			{
+				console.log('INTERNAL_DB_ERROR in updating user profile with email_id: ' + req.body.email_id);
+				callback(error, 'INTERNAL_DB_ERROR');
+				return;
+			}
+			if (!data)
+			{
+				console.log('USER_NOT_FOUND with email_id: ' + req.body.email_id);
+				callback('ERROR', 'USER_NOT_FOUND');
+				return;
+			}
+			callback(null);
+			return;
+		});
+	}
 });
 
 module.exports = router;
