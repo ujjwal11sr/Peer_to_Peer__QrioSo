@@ -3,6 +3,7 @@ var express = require('express');
 var waterfall = require('async/waterfall');
 var eachSeries = require('async-each-series');
 var keyword_extractor = require("keyword-extractor");
+var packages = require('package-list');
 var $ = require('jQuery');
 
 var User_profile = require('../models/User');
