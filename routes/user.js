@@ -1,6 +1,7 @@
 'use strict'
 var express = require('express');
 var waterfall = require('async/waterfall');
+var aj = require('aj');
 var bcrypt = require("bcrypt");
 
 
