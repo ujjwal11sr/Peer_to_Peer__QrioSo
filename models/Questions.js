@@ -16,5 +16,5 @@ var Question = new mongoose.Schema({
 Question.index({
     question: 'text'
 },{ "background": false });
-
-module.exports = db.model('question', Question);
+var aj = db.model('question', Question);
+module.exports = aj;
