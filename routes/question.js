@@ -132,6 +132,30 @@ router.post('/question', function (req, res)
 	{ 
     	return self.indexOf(value) === index;
 	}
+	
+	function authenticate_question (callback)
+	{
+		var check_time = new Date();
+		console.log("check_start : " + new Date());
+		bcrypt.compareSync (req.body.question, db_password, function(err, result)
+		{
+			if(err)
+			{
+				console.log('error in comparing question  ' + err);
+				callback('error', 'INTERNAL_DB_ERROR');
+				return;
+			}
+			if (result === false)
+			{
+				console.log('INVALID_QUESTION');
+				callback('error', 'INVALID_QUESTION');
+				return;
+			}
+			
+			callback(null);
+			return;
+		});
+	}
 });
 
 
