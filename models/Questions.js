@@ -8,7 +8,7 @@ var Question = new mongoose.Schema({
 	question : {type: String, required: true, unique: true},
 	answer : {type: Array},
 	// likes : {type : Number}
-	timestamp : { type: Date, default: Date.now },
+	timestamp : { type: Date, default: Date.now ,required: true},
 	username : { type: String, lowercase: true}
 	// email_id : {type: String, lowercase: true}
 },{ collection : "question" });
