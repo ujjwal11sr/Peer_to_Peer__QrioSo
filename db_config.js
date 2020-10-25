@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
-
+var waterfall = require('async/waterfall');
+var eachSeries = require('async-each-series');
 //Connection with the Database
 var connection = mongoose.createConnection("mongodb://localhost/peer_to_peer");
 
