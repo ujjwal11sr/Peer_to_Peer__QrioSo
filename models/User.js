@@ -21,21 +21,21 @@ var User_profile = new mongoose.Schema({
 },{ collection : "user" });
 
  
-// User_profile.pre("save", async function (next) {
-//     if (!this.isModified("password")) {
-//         return next();
-//     }
+User_profile.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+        return next();
+    }
  
-//     try {
-//         const hash = await bcrypt.hashAsync(this.password, 7);
+    try {
+        const hash = await bcrypt.hashAsync(this.password, 7);
  
-//         this.password = hash;
-//         next();
+        this.password = hash;
+        next();
  
-//     } catch (err) {
-//         next(err);
-//     }
-// });
+    } catch (err) {
+        next(err);
+    }
+});
 
 User_profile.pre('save', function(next)
 {
