@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var app = express();
-
+var mongoose = require('mongoose');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
