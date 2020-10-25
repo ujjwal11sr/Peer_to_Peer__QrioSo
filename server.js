@@ -1,4 +1,3 @@
-'use strict'
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -23,6 +22,6 @@ app.use('/api', require('./routes/user'));
 app.use('/ask', require('./routes/question'));
 
 // server running
-var PORT = 7777;
+var PORT = 4444;
 app.listen(PORT);
 console.log('Peer to Peer learning app listening on port : ' + PORT);
