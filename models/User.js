@@ -11,7 +11,7 @@ var SALT_WORK_FACTOR = 10;
 
 var User_profile = new mongoose.Schema({
 	
-	email_id			: {type: String, unique: true, lowercase: true},
+	email_id			: {type: String, unique: true, lowercase: true, required: true},
 	username			: {type: String, unique: true, required: true},
 	//mobile_number		: {type: Number, index: true},
 	password			: {type: String, required: true},
